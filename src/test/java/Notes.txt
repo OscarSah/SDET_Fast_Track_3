@@ -1,0 +1,13 @@
+What is JDBC?
+    UI Testing: Java + Selenium Code - Driver Manager - Browser
+    DataBase Testing : JAVA code - JDBC API - Driver(dedicated to that certain RDBMS) - Databases
+
+    * Connection String : URL + UserName + Password
+    * Driver of the Database : defined in the pom.xml as dependency
+
+JDBC helps us with code reusability
+
+How we are using JDBC?
+    1. Connect to DB
+    2. Execute some queries
+    3. Retrive your result and manipulate the data that comes
