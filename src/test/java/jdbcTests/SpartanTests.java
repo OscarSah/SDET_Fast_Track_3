@@ -34,10 +34,21 @@ public class SpartanTests {
     @Test
     public void connectSpartanDB() throws SQLException {
 
+        ResultSetMetaData rsmd = resultSet.getMetaData();
+        int columnCount = rsmd.getColumnCount();
         while (resultSet.next()){
-            System.out.println(resultSet.getObject(1)+" "+resultSet.getObject(2)+" "+resultSet.getObject(3));
+            String rowResult = "";
+            for (int i = 1; i <= columnCount; i++) {
+                rowResult += resultSet.getString(i)+" ";
+           }
+            System.out.println(rowResult);
         }
 
     }
+    /*
+    I need to handle column information in a more dynamic way
+    ResultSetMetaData  ----> how many columns and column names
+     */
+
 
 }
