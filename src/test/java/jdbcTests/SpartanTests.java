@@ -12,7 +12,7 @@ public class SpartanTests {
     Statement statement;
     ResultSet resultSet;
     // List all employees name, lastName and salary from employees table
-    String query = "select first_name, last_name, salary from employees";
+    String query = "select spartan_id, name, gender from spartans";
 
     @BeforeMethod
     public void connect() throws SQLException {
@@ -32,7 +32,11 @@ public class SpartanTests {
     }
 
     @Test
-    public void connectSpartanDB(){
+    public void connectSpartanDB() throws SQLException {
+
+        while (resultSet.next()){
+            System.out.println(resultSet.getObject(1)+" "+resultSet.getObject(2)+" "+resultSet.getObject(3));
+        }
 
     }
 
