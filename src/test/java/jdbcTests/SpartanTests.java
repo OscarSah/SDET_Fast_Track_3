@@ -1,5 +1,6 @@
 package jdbcTests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -81,7 +82,31 @@ Four Methods that allows us to read and manipulate the DataBase information, NEV
 3. resultSetMetaData.getColumnName(i)  ---> each row Map Key information
 4.  resultSet.getObject(i) -----> each row Map Value information
  */
+
+            queryResult.add(eachRow);
         }
+
+        for (Map<String, Object> eachRowInfo : queryResult) {
+            System.out.println("eachRowInfo = " + eachRowInfo);
+        }
+
+    // Why do we store these info into List of Maps: SO I can do JAVA tricks
+
+    /*
+    Task: find SPARTAN_ID=8 this person and verify that the NAME is Rodolfo : DataBase Testing
+     */
+        String expectedName = "Rodolfo";
+        String actualName = "";
+
+        for (Map<String, Object> eachRow : queryResult) {
+            int id = Integer.parseInt(String.valueOf(eachRow.get("SPARTAN_ID")));
+            if(id == 8){
+                actualName = (String) eachRow.get("NAME");
+            }
+        }
+        System.out.println("actualName = " + actualName);
+        System.out.println("expectedName = " + expectedName);
+        Assert.assertEquals(actualName,expectedName);
 
     }
 
