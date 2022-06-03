@@ -11,3 +11,6 @@ How we are using JDBC?
     1. Connect to DB
     2. Execute some queries
     3. Retrive your result and manipulate the data that comes
+
+In Cucumber Framework how do we handle before and after methods?
+*** Hooks Class: we create custom hooks with special tag name

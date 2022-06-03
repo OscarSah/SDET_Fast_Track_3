@@ -30,6 +30,15 @@ public class Hooks {
         Driver.closeDriver();
     }
 
+    @Before("@db")
+    public void startConnection(){
+        DBUtils.createConnection();
+    }
+
+    @After("@db")
+    public void closeConnection(){
+        DBUtils.destroy();
+    }
 
 
 }
