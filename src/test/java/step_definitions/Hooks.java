@@ -11,32 +11,34 @@ import utilities.Driver;
 import java.util.concurrent.TimeUnit;
 
 public class Hooks {
-    @Before
-    public void setUp() {
-        // we put a logic that should apply to every scenario
-        Driver.get().manage().window().maximize();
-        Driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    }
-
-    @After
-    public void tearDown(Scenario scenario) {
-        // only takes a screenshot if the scenario fails
-        if (scenario.isFailed()) {
-            // taking a screenshot
-            final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png");
-        }
-        Driver.closeDriver();
-    }
+//    @Before
+//    public void setUp() {
+//        // we put a logic that should apply to every scenario
+//        Driver.get().manage().window().maximize();
+//        Driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//
+//    }
+//
+//    @After
+//    public void tearDown(Scenario scenario) {
+//        // only takes a screenshot if the scenario fails
+//        if (scenario.isFailed()) {
+//            // taking a screenshot
+//            final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
+//            scenario.embed(screenshot, "image/png");
+//        }
+//        Driver.closeDriver();
+//    }
 
     @Before("@db")
     public void startConnection(){
+        System.out.println("Connecting to DB");
         DBUtils.createConnection();
     }
 
     @After("@db")
     public void closeConnection(){
+        System.out.println("Closing DB connection");
         DBUtils.destroy();
     }
 
