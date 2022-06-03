@@ -10,4 +10,6 @@ Feature: Spartan Name Information Test
     Examples:
     |id|name|
     |8 |Rodolfo|
-    |
+    |2 |Nels   |
+    |3 |Fidole |
+
