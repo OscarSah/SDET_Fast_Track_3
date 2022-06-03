@@ -7,7 +7,7 @@ import utilities.DBUtils;
 
 public class SpartanDBStepDefs {
 
-    String actualName;
+    static String actualName;
 
     @When("the user retrives the name of spartan with ID {int}")
     public void the_user_retrives_the_name_of_spartan_with_ID(Integer id) {

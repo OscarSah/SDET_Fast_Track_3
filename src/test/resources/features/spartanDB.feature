@@ -3,7 +3,7 @@ Feature: Spartan Name Information Test
     When the user retrives the name of spartan with ID 8
     Then the name of the spartan should be "Rodolfo"
 
-  @wip @db
+  @db
  Scenario Outline: Verify a list of Spartans name
     When the user retrives the name of spartan with ID <id>
     Then the name of the spartan should be "<name>"
